@@ -20,9 +20,9 @@
 
     <footer class="flex w-4/6 items-center justify-between mx-auto my-4">
       <button @click="swipeLeft"
-        class="text-4xl bg-white hover:text-red-700 text-red-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
+        class="text-4xl bg-white hover:text-green-700 text-green-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
       >
-        <i class="far fa-thumbs-down fa-flip-horizontal"></i>
+        <i class="far fa-thumbs-up"></i>
       </button>
       <button @click="swipeUp"
         class="text-2xl bg-white hover:bg-gray-700 text-gray-500 font-bold rounded-full w-16 h-16 overflow-hidden shadow-lg"
@@ -30,9 +30,9 @@
         <i class="fas fa-question"></i>
       </button>
       <button @click="swipeRight"
-        class="text-4xl bg-white hover:text-green-700 text-green-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
+        class="text-4xl bg-white hover:text-red-700 text-red-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
       >
-        <i class="far fa-thumbs-up"></i>
+        <i class="far fa-thumbs-down fa-flip-horizontal"></i>
       </button>
     </footer>
   </div>
