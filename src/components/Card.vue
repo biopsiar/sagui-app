@@ -1,7 +1,7 @@
 <template>
   <div
     class="card-container bg-white text-left rounded-lg overflow-hidden shadow-lg flex bg-no-repeat bg-center absolute"
-    :style="{ background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(https://tailwindcss.com/img/card-top.jpg)' }"
+    :style="{ background: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(${data.img})` }"
   >
     <div class="px-6 py-4 mt-auto">
       <div class="font-bold text-3xl text-white">R$ {{ unitary_price }},00</div>

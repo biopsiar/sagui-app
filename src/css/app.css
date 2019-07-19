@@ -1,3 +1,9 @@
 body {
     background-color: #eee;
 }
+
+.cool-bg {
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}

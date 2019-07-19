@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="flex flex-col h-screen">
-    <div id="nav" class="text-2xl font-bold text-gray-700 flex justify-between px-5 py-5">
+    <div id="nav" class="text-2xl font-bold text-gray-700 flex justify-between px-5 pt-5 pb-2">
       <router-link to="/settings"><i class="fas fa-cog"></i></router-link>
       <router-link to="/">Home</router-link>
       <router-link to="/profile"><i class="fas fa-user"></i></router-link>
