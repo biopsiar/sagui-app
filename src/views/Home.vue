@@ -8,7 +8,7 @@
       <card class="absolute left-0 right-0"/>
     </vue-swing>
 
-    <div id="footer" class="flex w-4/6 items-center justify-between mx-auto">
+    <footer class="flex w-4/6 items-center justify-between mx-auto">
       <button
         class="text-3xl bg-red-300 hover:bg-red-700 text-white font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
       >
@@ -24,7 +24,8 @@
       >
         <i class="fas fa-thumbs-up"></i>
       </button>
-    </div>
+    </footer>
+    
   </div>
 </template>
 
