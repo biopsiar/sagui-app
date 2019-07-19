@@ -5,6 +5,9 @@
     <vue-swing
       @throwout="throwout"
       @throwin="throwin"
+      :minThrowOutDistance="25"
+      :maxThrowOutDistance="500"
+      :config="config"
       class="h-full"
       ref="swingRef"
     >
@@ -59,9 +62,12 @@ export default {
           VueSwing.Direction.LEFT,
           VueSwing.Direction.RIGHT
         ],
-        // minThrowOutDistance: 50,
-        // maxThrowOutDistance: 50
-        throwOutDistance: 1
+        // throwOutConfidence: 0,
+        // minThrowOutDistance: 25,
+        // maxThrowOutDistance: 500,
+        throwOutConfidence: function(){
+          return 1
+        }
       },
       cards: [
         {
