@@ -1,14 +1,20 @@
 <template>
-  <div class="home flex flex-col h-full pb-5">
+  <div class="home flex flex-col h-full">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to SAGUI"/> -->
-    <vue-swing @throwout="throwout" @throwin="throwin" class="flex flex-col h-full px-1 pb-4">
+    <vue-swing
+      @throwout="throwout"
+      @throwin="throwin"
+      class="flex flex-col h-full px-1"
+      ref="swingRef"
+    >
       <!-- <card v-for="card in cards" :key="card.id" :data="card" /> -->
-      <card/>
-      <card class="absolute left-0 right-0"/>
+      <card :style="{height: cardHeight + 'px'}"/>
+      <!-- <card /> -->
+      <!-- <card class="absolute left-0 right-0"/> -->
     </vue-swing>
 
-    <footer class="flex w-4/6 items-center justify-between mx-auto">
+    <footer class="flex w-4/6 items-center justify-between mx-auto my-4">
       <button
         class="text-3xl bg-red-300 hover:bg-red-700 text-white font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
       >
@@ -19,13 +25,12 @@
       >
         <i class="fas fa-question"></i>
       </button>
-      <button
+      <button @click="log"
         class="text-3xl bg-teal-300 hover:bg-green-700 text-white font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
       >
         <i class="fas fa-thumbs-up"></i>
       </button>
     </footer>
-    
   </div>
 </template>
 
@@ -44,6 +49,7 @@ export default {
   },
   data: function() {
     return {
+      cardHeight: 0,
       config: {
         allowedDirections: [
           VueSwing.Direction.UP,
@@ -66,7 +72,7 @@ export default {
           img: "https://tailwindcss.com/img/card-top.jpg",
           description:
             "Voluptatibus quia, nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-        },
+        }
         // {
         //   id: 3,
         //   title: "Sequenciamento DNA",
@@ -77,12 +83,22 @@ export default {
       ]
     };
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.cardHeight = this.$refs.swingRef.$el.clientHeight;
+    });
+  },
   methods: {
     throwout: function(e) {
       console.log("out", e);
     },
     throwin: function(e) {
       console.log("in", e);
+    },
+    log: function(){
+      // console.log(this.$refs.swingRef.clientHeight);
+      console.log(this.$refs.swingRef.$el.clientHeight);
+      // this.cardHeight = this.$refs.swingRef.$el.clientHeight;
     }
   }
 };

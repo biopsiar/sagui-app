@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card-container bg-white text-left max-w-sm rounded-lg overflow-hidden shadow-lg mx-auto flex flex-col flex-1 bg-no-repeat bg-center"
+    class="card-container bg-white text-left max-w-sm rounded-lg overflow-hidden shadow-lg mx-auto flex bg-no-repeat bg-center"
     :style="{ background: 'url(https://tailwindcss.com/img/card-top.jpg)' }"
   >
     <!-- <img
