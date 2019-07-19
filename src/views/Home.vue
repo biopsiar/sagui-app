@@ -8,28 +8,28 @@
       class="h-full"
       ref="swingRef"
     >
-      <!-- <card v-for="card in cards" :key="card.id" :data="card" /> -->
-      <card :style="{height: cardHeight + 'px'}"/>
+      <card v-for="card in cards" :key="card.id" :data="card"  :style="{height: cardHeight + 'px'}"/>
+      <!-- <card :style="{height: cardHeight + 'px'}"/> -->
       <!-- <card :style="{height: cardHeight + 'px'}"/> -->
       <!-- <card /> -->
       <!-- <card class="absolute left-0 right-0"/> -->
     </vue-swing>
 
     <footer class="flex w-4/6 items-center justify-between mx-auto my-4">
-      <button
-        class="text-3xl bg-red-300 hover:bg-red-700 text-white font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
+      <button @click="swipeLeft"
+        class="text-4xl bg-white hover:text-red-700 text-red-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
       >
-        <i class="fas fa-thumbs-down fa-flip-horizontal"></i>
+        <i class="far fa-thumbs-down fa-flip-horizontal"></i>
       </button>
       <button
         class="text-2xl bg-white hover:bg-gray-700 text-gray-500 font-bold rounded-full w-16 h-16 overflow-hidden shadow-lg"
       >
         <i class="fas fa-question"></i>
       </button>
-      <button @click="log"
-        class="text-3xl bg-teal-300 hover:bg-green-700 text-white font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
+      <button @click="swipeRight"
+        class="text-4xl bg-white hover:text-green-700 text-green-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
       >
-        <i class="fas fa-thumbs-up"></i>
+        <i class="far fa-thumbs-up"></i>
       </button>
     </footer>
   </div>
@@ -74,14 +74,14 @@ export default {
           img: "https://tailwindcss.com/img/card-top.jpg",
           description:
             "Voluptatibus quia, nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+        },
+        {
+          id: 3,
+          title: "Sequenciamento DNA",
+          img: "https://tailwindcss.com/img/card-top.jpg",
+          description:
+            "Consectetur adipisicing elit. Lorem lorem. Lalala. Voluptatibus quia, nulla!"
         }
-        // {
-        //   id: 3,
-        //   title: "Sequenciamento DNA",
-        //   img: "https://tailwindcss.com/img/card-top.jpg",
-        //   description:
-        //     "Consectetur adipisicing elit. Lorem lorem. Lalala. Voluptatibus quia, nulla!"
-        // }
       ]
     };
   },
@@ -102,6 +102,17 @@ export default {
       // console.log(this.$refs.swingRef.clientHeight);
       console.log(this.$refs.swingRef.$el.clientHeight);
       // this.cardHeight = this.$refs.swingRef.$el.clientHeight;
+    },
+    swipeLeft () {
+      const cards = this.$refs.swingRef.cards
+      cards[cards.length - 1].throwOut(-50,-10)
+    },
+    swipeRight () {
+      const cards = this.$refs.swingRef.cards
+      cards[cards.length - 1].throwOut(
+        Math.random() * 10 - 50,
+        Math.random() * 10 - 50
+      )
     }
   }
 };

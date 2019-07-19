@@ -3,16 +3,11 @@
     class="card-container bg-white text-left rounded-lg overflow-hidden shadow-lg flex bg-no-repeat bg-center absolute"
     :style="{ background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(https://tailwindcss.com/img/card-top.jpg)' }"
   >
-    <!-- <img
-      class="w-full flex-1"
-      src="https://tailwindcss.com/img/card-top.jpg"
-      alt="Sunset in the mountains"
-    />-->
     <div class="px-6 py-4 mt-auto">
-      <div class="font-bold text-xl mb-2 text-white">Computador DELL</div>
+      <div class="font-bold text-xl mb-2 text-white">{{ data.title }}</div>
       <p
         class="text-gray-300 text-base"
-      >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!</p>
+      >{{ data.description }}</p>
     </div>
   </div>
 </template>
@@ -21,10 +16,10 @@
 // import image from "@/assets/item.png"
 
 export default {
-  name: "Card"
-  // props: {
-  //   msg: String
-  // }
+  name: "Card",
+  props: {
+    data: Object
+  }
 };
 </script>
 
