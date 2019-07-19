@@ -1,14 +1,14 @@
 <template>
   <div
-    class="card-container bg-white text-left max-w-sm rounded-lg overflow-hidden shadow-lg mx-auto flex bg-no-repeat bg-center"
-    :style="{ background: 'url(https://tailwindcss.com/img/card-top.jpg)' }"
+    class="card-container bg-white text-left rounded-lg overflow-hidden shadow-lg flex bg-no-repeat bg-center absolute"
+    :style="{ background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(https://tailwindcss.com/img/card-top.jpg)' }"
   >
     <!-- <img
       class="w-full flex-1"
       src="https://tailwindcss.com/img/card-top.jpg"
       alt="Sunset in the mountains"
-    /> -->
-    <div class="px-6 py-4">
+    />-->
+    <div class="px-6 py-4 mt-auto">
       <div class="font-bold text-xl mb-2 text-white">Computador DELL</div>
       <p
         class="text-gray-300 text-base"
@@ -37,9 +37,9 @@ export default {
 //   color: #0000ff;
 // }
 .card-container {
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 </style>

@@ -5,11 +5,12 @@
     <vue-swing
       @throwout="throwout"
       @throwin="throwin"
-      class="flex flex-col h-full px-1"
+      class="h-full"
       ref="swingRef"
     >
       <!-- <card v-for="card in cards" :key="card.id" :data="card" /> -->
       <card :style="{height: cardHeight + 'px'}"/>
+      <!-- <card :style="{height: cardHeight + 'px'}"/> -->
       <!-- <card /> -->
       <!-- <card class="absolute left-0 right-0"/> -->
     </vue-swing>
@@ -50,6 +51,7 @@ export default {
   data: function() {
     return {
       cardHeight: 0,
+      cardWidth: 0,
       config: {
         allowedDirections: [
           VueSwing.Direction.UP,
@@ -86,6 +88,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.cardHeight = this.$refs.swingRef.$el.clientHeight;
+      // this.cardWidth = this.$refs.swingRef.$el.clientwidth - 10;
     });
   },
   methods: {
