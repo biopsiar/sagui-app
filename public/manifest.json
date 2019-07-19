@@ -1,6 +1,6 @@
 {
-  "name": "media",
-  "short_name": "media",
+  "name": "SAGUI: Sistema de Avaliação de Gastos Públicos",
+  "short_name": "SAGUI",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
@@ -14,7 +14,8 @@
     }
   ],
   "start_url": "./index.html",
-  "display": "standalone",
+  "display": "fullscreen",
+  "orientation": "portrait",
   "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "theme_color": "#4299e1"
 }

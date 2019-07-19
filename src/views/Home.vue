@@ -21,7 +21,7 @@
       >
         <i class="far fa-thumbs-down fa-flip-horizontal"></i>
       </button>
-      <button
+      <button @click="swipeUp"
         class="text-2xl bg-white hover:bg-gray-700 text-gray-500 font-bold rounded-full w-16 h-16 overflow-hidden shadow-lg"
       >
         <i class="fas fa-question"></i>
@@ -58,27 +58,39 @@ export default {
           // VueSwing.Direction.DOWN,
           VueSwing.Direction.LEFT,
           VueSwing.Direction.RIGHT
-        ]
+        ],
+        // minThrowOutDistance: 50,
+        // maxThrowOutDistance: 50
+        throwOutDistance: 1
       },
       cards: [
         {
           id: 1,
           title: "Computador DELL",
+          price: 27.33,
           img: "Computador DELL",
+          unity: 1,
+          unity_type: "Caixa",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!"
         },
         {
           id: 2,
           title: "Açucar cristalizado",
+          price: 52.90,
           img: "https://tailwindcss.com/img/card-top.jpg",
+          unity: 1,
+          unity_type: "Cento",
           description:
             "Voluptatibus quia, nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit."
         },
         {
           id: 3,
           title: "Sequenciamento DNA",
+          price: 2500,
           img: "https://tailwindcss.com/img/card-top.jpg",
+          unity: 1,
+          unity_type: "Unidade",
           description:
             "Consectetur adipisicing elit. Lorem lorem. Lalala. Voluptatibus quia, nulla!"
         }
@@ -94,6 +106,10 @@ export default {
   methods: {
     throwout: function(e) {
       console.log("out", e);
+
+      setTimeout(() => {
+        this.cards.pop()
+      }, 100)
     },
     throwin: function(e) {
       console.log("in", e);
@@ -103,16 +119,19 @@ export default {
       console.log(this.$refs.swingRef.$el.clientHeight);
       // this.cardHeight = this.$refs.swingRef.$el.clientHeight;
     },
+    // remove () {
+    // },
     swipeLeft () {
       const cards = this.$refs.swingRef.cards
-      cards[cards.length - 1].throwOut(-50,-10)
+      cards[cards.length - 1].throwOut(-25,0)
     },
     swipeRight () {
       const cards = this.$refs.swingRef.cards
-      cards[cards.length - 1].throwOut(
-        Math.random() * 10 - 50,
-        Math.random() * 10 - 50
-      )
+      cards[cards.length - 1].throwOut(25,0)
+    },
+    swipeUp () {
+      const cards = this.$refs.swingRef.cards
+      cards[cards.length - 1].throwOut(0,25)
     }
   }
 };
