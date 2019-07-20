@@ -5,10 +5,15 @@
     :class="{ bglogin: $route.path == '/' }"
   >
     <!-- <login v-if="!loggedIn"/> -->
+    <transition
+      name="nav-animation"
+      enter-active-class="animated faster fadeInDown"
+      leave-active-class="animated faster fadeOutUp"
+    >
     <div
       v-if="$route.path != '/'"
       id="nav"
-      class="text-2xl font-bold text-gray-700 flex justify-between px-5 pt-5 pb-2"
+      class="text-2xl font-bold text-gray-600 flex justify-between px-5 pt-5 pb-2"
     >
       <router-link to="/settings">
         <i class="fas fa-cog"></i>
@@ -18,6 +23,7 @@
         <i class="fas fa-user"></i>
       </router-link>
     </div>
+    </transition>
 
     <!-- <transition
       name="router-animation"

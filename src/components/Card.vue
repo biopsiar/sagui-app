@@ -4,12 +4,12 @@
     :style="{ background: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(${data.img})` }"
   >
     <div class="px-6 py-4 mt-auto">
-      <div class="font-bold text-3xl text-white">R$ {{ unitary_price }},00</div>
+      <div class="font-bold text-3xl text-gray-200">R$ {{ unitary_price }},00</div>
       <div>
-        <span class="font-bold text-xl mb-2 text-white">{{ data.title }}</span>
+        <span class="font-bold text-xl mb-2 text-gray-200">{{ data.title }}</span>
         <span class="text-md mb-2 text-gray-300"> ({{data.unity_type}})</span>
       </div>
-      <p class="text-gray-300 text-base">{{ data.description }}</p>
+      <p class="text-gray-400 text-base">{{ data.description }}</p>
     </div>
   </div>
 </template>

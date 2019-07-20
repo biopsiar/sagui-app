@@ -1,5 +1,5 @@
 <template>
-  <div class="home flex flex-col h-full">
+  <div class="home flex flex-col h-full pl-2">
       <vue-swing
         @throwout="throwout"
         :config="config"
@@ -10,7 +10,7 @@
           v-for="card in cards"
           :key="card.id"
           :data="card"
-          :style="{height: cardHeight + 'px'}"
+          :style="{height: cardHeight + 'px', width: 'calc(100% - 15px)'}"
         />
       </vue-swing>
 
