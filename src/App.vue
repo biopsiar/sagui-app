@@ -9,34 +9,39 @@
       <router-link to="/settings">
         <i class="fas fa-cog"></i>
       </router-link>
-      <router-link to="/home">Home</router-link>
+      <router-link to="/home">SAGUI</router-link>
       <router-link to="/profile">
         <i class="fas fa-user"></i>
       </router-link>
     </div>
-    <router-view />
+    <router-view @match="toggleMatchScreen"/>
+
+    <div v-show="isMatchScreen" class="match absolute w-full h-full bg-black"></div>
   </div>
 </template>
 
 <script>
 // import Login from "@/components/Card.vue";
 
-// export default {
-//   name: "App",
-//   components: {
-//     Login
-//   },
-//   data: function() {
-//     return {
-//       loggedIn: false
-//     };
-//   },
-//   methods: {
-//     login () {
-//       this.loggedIn = true;
-//     }
-//   }
-// };
+export default {
+  name: "App",
+  // components: {
+  //   Login
+  // },
+  data: function() {
+    return {
+      isMatchScreen: false
+    };
+  },
+  methods: {
+    login () {
+      this.loggedIn = true;
+    },
+    toggleMatchScreen (e){
+      console.log(e)
+    }
+  }
+};
 </script>
 
 <style lang="scss">
@@ -58,5 +63,9 @@
   }
   // display: flex;
   // justify-content: space-between;
+}
+
+.match {
+  opacity: 0.9;
 }
 </style>

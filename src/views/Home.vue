@@ -1,40 +1,48 @@
 <template>
   <div class="home flex flex-col h-full">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to SAGUI"/> -->
-    <vue-swing
-      @throwout="throwout"
-      @throwin="throwin"
-      :minThrowOutDistance="25"
-      :maxThrowOutDistance="500"
-      :config="config"
-      class="h-full"
-      ref="swingRef"
-    >
-      <card v-for="card in cards" :key="card.id" :data="card"  :style="{height: cardHeight + 'px'}"/>
-      <!-- <card :style="{height: cardHeight + 'px'}"/> -->
-      <!-- <card :style="{height: cardHeight + 'px'}"/> -->
-      <!-- <card /> -->
-      <!-- <card class="absolute left-0 right-0"/> -->
-    </vue-swing>
+      <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+      <!-- <HelloWorld msg="Welcome to SAGUI"/> -->
+      <vue-swing
+        @throwout="throwout"
+        @throwin="throwin"
+        :minThrowOutDistance="25"
+        :maxThrowOutDistance="500"
+        :config="config"
+        class="h-full"
+        ref="swingRef"
+      >
+        <card
+          v-for="card in cards"
+          :key="card.id"
+          :data="card"
+          :style="{height: cardHeight + 'px'}"
+        />
+        <!-- <card :style="{height: cardHeight + 'px'}"/> -->
+        <!-- <card :style="{height: cardHeight + 'px'}"/> -->
+        <!-- <card /> -->
+        <!-- <card class="absolute left-0 right-0"/> -->
+      </vue-swing>
 
-    <footer class="flex w-3/4 items-center justify-between mx-auto my-4">
-      <button @click="swipeLeft"
-        class="text-4xl bg-white hover:text-green-700 text-green-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
-      >
-        <i class="far fa-thumbs-up"></i>
-      </button>
-      <button @click="swipeUp"
-        class="text-2xl bg-white hover:bg-gray-700 text-gray-500 font-bold rounded-full w-16 h-16 overflow-hidden shadow-lg"
-      >
-        <i class="fas fa-question"></i>
-      </button>
-      <button @click="swipeRight"
-        class="text-4xl bg-white hover:text-red-700 text-red-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
-      >
-        <i class="far fa-thumbs-down fa-flip-horizontal"></i>
-      </button>
-    </footer>
+      <footer class="flex w-3/4 items-center justify-between mx-auto my-4">
+        <button
+          @click="swipeLeft"
+          class="text-4xl bg-white hover:text-green-700 text-green-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
+        >
+          <i class="far fa-thumbs-up"></i>
+        </button>
+        <button
+          @click="swipeUp"
+          class="text-2xl bg-white hover:bg-gray-700 text-gray-500 font-bold rounded-full w-16 h-16 overflow-hidden shadow-lg"
+        >
+          <i class="fas fa-question"></i>
+        </button>
+        <button
+          @click="swipeRight"
+          class="text-4xl bg-white hover:text-red-700 text-red-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
+        >
+          <i class="far fa-thumbs-down fa-flip-horizontal"></i>
+        </button>
+      </footer>
   </div>
 </template>
 
@@ -65,8 +73,8 @@ export default {
         // throwOutConfidence: 0,
         // minThrowOutDistance: 25,
         // maxThrowOutDistance: 500,
-        throwOutConfidence: function(){
-          return 1
+        throwOutConfidence: function() {
+          return 1;
         }
       },
       cards: [
@@ -83,7 +91,7 @@ export default {
         {
           id: 2,
           title: "Açucar cristalizado",
-          price: 52.90,
+          price: 52.9,
           img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 1,
           unity_type: "Cento",
@@ -114,30 +122,30 @@ export default {
       console.log("out", e);
 
       setTimeout(() => {
-        this.cards.pop()
-      }, 100)
+        this.cards.pop();
+      }, 100);
     },
     throwin: function(e) {
       console.log("in", e);
     },
-    log: function(){
+    log: function() {
       // console.log(this.$refs.swingRef.clientHeight);
       console.log(this.$refs.swingRef.$el.clientHeight);
       // this.cardHeight = this.$refs.swingRef.$el.clientHeight;
     },
     // remove () {
     // },
-    swipeLeft () {
-      const cards = this.$refs.swingRef.cards
-      cards[cards.length - 1].throwOut(-25,0)
+    swipeLeft() {
+      const cards = this.$refs.swingRef.cards;
+      cards[cards.length - 1].throwOut(-25, 0);
     },
-    swipeRight () {
-      const cards = this.$refs.swingRef.cards
-      cards[cards.length - 1].throwOut(25,0)
+    swipeRight() {
+      const cards = this.$refs.swingRef.cards;
+      cards[cards.length - 1].throwOut(25, 0);
     },
-    swipeUp () {
-      const cards = this.$refs.swingRef.cards
-      cards[cards.length - 1].throwOut(0,25)
+    swipeUp() {
+      const cards = this.$refs.swingRef.cards;
+      cards[cards.length - 1].throwOut(0, 25);
     }
   }
 };
