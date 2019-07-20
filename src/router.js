@@ -9,13 +9,24 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/settings',
+      name: 'settings',
+      meta: { order: 0 },
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/Settings.vue')
+    },
+    {
       path: '/home',
       name: 'home',
+      meta: { order: 1 },
       component: () => import(/* webpackChunkName: "about" */ './views/Home.vue')
     },
     {
       path: '/profile',
       name: 'profile',
+      meta: { order: 2 },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -24,18 +35,11 @@ export default new Router({
     {
       path: '/',
       name: 'login',
+      meta: { order: -1 },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: Login
-    },
-    {
-      path: '/setting',
-      name: 'settings',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/Settings.vue')
     }
   ]
 })

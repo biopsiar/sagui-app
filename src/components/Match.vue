@@ -20,14 +20,14 @@
         <div class="text-center text-xl">
           <button
             @click="share"
-            class="bg-blue-500 hover:bg-blue-700 text-white w-full font-bold mb-4 py-2 px-2 rounded-full focus:outline-none focus:shadow-outline"
+            class="bg-blue-700 hover:bg-blue-900 text-white w-full font-bold mb-4 py-2 px-2 rounded-full focus:outline-none focus:shadow-outline"
             type="button"
-          >Compartilhar</button>
+          ><i class="fas fa-share pr-2"></i>Compartilhar</button>
           <button
             @click="closeMatch"
-            class="bg-white border border-gray-500 hover:bg-gray-300 text-gray-700 w-full py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+            class="bg-gray-300 border border-gray-500 hover:bg-gray-500 text-gray-700 w-full py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
             type="button"
-          >Continuar avaliando</button>
+          ><i class="fas fa-chevron-left pr-2"></i>Continuar avaliando</button>
         </div>
       </div>
     </div>

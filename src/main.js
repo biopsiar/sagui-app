@@ -8,6 +8,7 @@ import './registerServiceWorker'
 import './css/tailwind.css'
 import './css/app.css'
 import '@fortawesome/fontawesome-free/css/all.css'
+import "animate.css/animate.min.css";
 
 Vue.config.productionTip = false
 
