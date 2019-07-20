@@ -12,6 +12,9 @@ import "animate.css/animate.min.css";
 
 Vue.config.productionTip = false
 
+Vue.prototype.IMAGE_API = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyBuqRXAyy5p3jsd1IHQ-UtA38gjskrw9qo&cx=010323834795960414770:6x1j0vzhltg&q=';
+Vue.prototype.PRICE_API = 'https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyBuqRXAyy5p3jsd1IHQ-UtA38gjskrw9qo&cx=010323834795960414770:b14jgo3hhwi&q=';
+
 new Vue({
   router,
   store,

@@ -1,39 +1,36 @@
 <template>
   <div class="home flex flex-col h-full pl-2">
-      <vue-swing
-        @throwout="throwout"
-        :config="config"
-        class="h-full"
-        ref="swingRef"
-      >
+    <vue-swing @throwout="throwout" :config="config" class="h-full" ref="swingRef">
+      <template v-if="showStack">
         <card
           v-for="card in cards"
           :key="card.id"
           :data="card"
-          :style="{height: cardHeight + 'px', width: 'calc(100% - 15px)'}"
+          :style="{height: cardHeight + 'px', width: 'calc(100% - 16px)'}"
         />
-      </vue-swing>
+      </template>
+    </vue-swing>
 
-      <footer class="flex w-3/4 items-center justify-between mx-auto my-4">
-        <button
-          @click="swipeLeft"
-          class="text-4xl bg-white hover:text-green-700 text-green-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
-        >
-          <i class="far fa-thumbs-up"></i>
-        </button>
-        <button
-          @click="swipeUp"
-          class="text-2xl bg-white hover:bg-gray-700 text-gray-500 font-bold rounded-full w-16 h-16 overflow-hidden shadow-lg"
-        >
-          <i class="fas fa-question"></i>
-        </button>
-        <button
-          @click="match"
-          class="text-4xl bg-white hover:text-red-700 text-red-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
-        >
-          <i class="far fa-thumbs-down fa-flip-horizontal"></i>
-        </button>
-      </footer>
+    <footer class="flex w-3/4 items-center justify-between mx-auto my-4">
+      <button
+        @click="swipeLeft"
+        class="text-4xl bg-white hover:text-green-700 text-green-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
+      >
+        <i class="far fa-thumbs-up"></i>
+      </button>
+      <button
+        @click="swipeUp"
+        class="text-2xl bg-white hover:bg-gray-700 text-gray-500 font-bold rounded-full w-16 h-16 overflow-hidden shadow-lg"
+      >
+        <i class="fas fa-question"></i>
+      </button>
+      <button
+        @click="match"
+        class="text-4xl bg-white hover:text-red-700 text-red-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
+      >
+        <i class="far fa-thumbs-down fa-flip-horizontal"></i>
+      </button>
+    </footer>
   </div>
 </template>
 
@@ -43,6 +40,7 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 import VueSwing from "vue-swing";
 import Card from "@/components/Card.vue";
+import axios from "axios";
 
 export default {
   name: "home",
@@ -52,6 +50,7 @@ export default {
   },
   data: function() {
     return {
+      showStack: false,
       cardHeight: 0,
       cardWidth: 0,
       config: {
@@ -60,9 +59,6 @@ export default {
           VueSwing.Direction.LEFT,
           VueSwing.Direction.RIGHT
         ],
-        // throwOutConfidence: 0,
-        // minThrowOutDistance: 25,
-        // maxThrowOutDistance: 500,
         throwOutConfidence: function() {
           return 1;
         }
@@ -70,36 +66,50 @@ export default {
       cards: [
         {
           id: 1,
-          title: "Computador DELL",
-          price: 27.33,
+          title: "Saco plástico para lixo",
+          price: 12,
           img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 1,
-          unity_type: "Caixa",
+          unity_type: "100",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!"
+            "Capacidade 100 litros. Saco reforçado de polietileno. Embalagem com 100 sacos."
         },
         {
           id: 2,
-          title: "Açucar cristalizado",
-          price: 52.9,
+          title: "Tinta para pincel atômico",
+          price: 33,
           img: "https://tailwindcss.com/img/card-top.jpg",
-          unity: 1,
-          unity_type: "Cento",
+          unity: 12,
+          unity_type: "Unidade",
           description:
-            "Voluptatibus quia, nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            "Mínimo 20ml. vermelha, preta ou azul"
         },
         {
           id: 3,
-          title: "Sequenciamento DNA",
-          price: 2500,
+          title: "Manutenção de ônibus",
+          price: 100,
           img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 1,
           unity_type: "Unidade",
           description:
-            "Consectetur adipisicing elit. Lorem lorem. Lalala. Voluptatibus quia, nulla!"
+            "Serviços mecânicos para manutenção preventiva"
+        },
+        {
+          id: 4,
+          title: "Computador DELL",
+          price: 5000,
+          img: "https://tailwindcss.com/img/card-top.jpg",
+          unity: 1,
+          unity_type: "Unidade",
+          description:
+            "Computador DELL"
         }
-      ]
+      ],
+      cardImages: []
     };
+  },
+  created() {
+    this.loadCards();
   },
   mounted() {
     this.$nextTick(() => {
@@ -107,25 +117,60 @@ export default {
     });
   },
   methods: {
-    throwout: function(e) {
+    loadCards() {
+      axios
+        .get(`http://www.mocky.io/v2/5d332a4e3400005a00749f8f`)
+        .then(response => {
+          console.log(response.data)
+          this.cards = response.data;
+          this.loadCardImages(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    loadCardImages(cards) {
+      let promises = cards.map(async card => {
+        return axios
+          .get(`http://www.mocky.io/v2/5d32f17a3400005400749f33`)
+          .then(response => {
+            console.log(response.data);
+            return response.data;
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      });
+      return Promise.all(promises)
+      .then(cardImages => {
+        this.cardImages = cardImages;
+        this.showStack = true;
+      });
+    },
+    //throwout
+    throwout() {
       setTimeout(() => {
         this.cards.pop();
       }, 100);
     },
+    //<--
     swipeLeft() {
       const cards = this.$refs.swingRef.cards;
       cards[cards.length - 1].throwOut(-25, 0);
     },
+    //-->
     swipeRight() {
       const cards = this.$refs.swingRef.cards;
       cards[cards.length - 1].throwOut(25, 0);
     },
+    //up
     swipeUp() {
       const cards = this.$refs.swingRef.cards;
       cards[cards.length - 1].throwOut(0, 25);
     },
+    //match event
     match() {
-      this.$emit('match');
+      this.$emit("match");
     }
   }
 };
