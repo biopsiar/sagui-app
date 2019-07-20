@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="flex flex-col h-screen max-w-xl mx-auto"
+    class="flex flex-col h-screen"
     :class="{ bglogin: $route.path == '/' }"
   >
     <!-- <login v-if="!loggedIn"/> -->

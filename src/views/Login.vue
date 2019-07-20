@@ -9,7 +9,7 @@
         </button>  class="animated infinite bounce delay-2s"-->
       </div>
     <div class="my-auto">
-      <img class="w-3/4 mx-auto pb-8" :src="require('@/assets/undraw_voting.svg')" />
+      <img class="w-3/4 max-w-xl mx-auto pb-8 pb-4" :src="require('@/assets/undraw_voting.svg')" />
       <div class="animated fade delay-2s bg-white w-3/4 mx-auto my-auto rounded-lg overflow-hidden shadow-lg p-4">
         <div class="text-center">
           <router-link to="/home" tag="button"
