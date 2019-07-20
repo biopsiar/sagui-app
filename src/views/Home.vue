@@ -1,12 +1,7 @@
 <template>
   <div class="home flex flex-col h-full">
-      <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-      <!-- <HelloWorld msg="Welcome to SAGUI"/> -->
       <vue-swing
         @throwout="throwout"
-        @throwin="throwin"
-        :minThrowOutDistance="25"
-        :maxThrowOutDistance="500"
         :config="config"
         class="h-full"
         ref="swingRef"
@@ -17,10 +12,6 @@
           :data="card"
           :style="{height: cardHeight + 'px'}"
         />
-        <!-- <card :style="{height: cardHeight + 'px'}"/> -->
-        <!-- <card :style="{height: cardHeight + 'px'}"/> -->
-        <!-- <card /> -->
-        <!-- <card class="absolute left-0 right-0"/> -->
       </vue-swing>
 
       <footer class="flex w-3/4 items-center justify-between mx-auto my-4">
@@ -37,7 +28,7 @@
           <i class="fas fa-question"></i>
         </button>
         <button
-          @click="swipeRight"
+          @click="match"
           class="text-4xl bg-white hover:text-red-700 text-red-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
         >
           <i class="far fa-thumbs-down fa-flip-horizontal"></i>
@@ -66,7 +57,6 @@ export default {
       config: {
         allowedDirections: [
           VueSwing.Direction.UP,
-          // VueSwing.Direction.DOWN,
           VueSwing.Direction.LEFT,
           VueSwing.Direction.RIGHT
         ],
@@ -114,27 +104,14 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.cardHeight = this.$refs.swingRef.$el.clientHeight;
-      // this.cardWidth = this.$refs.swingRef.$el.clientwidth - 10;
     });
   },
   methods: {
     throwout: function(e) {
-      console.log("out", e);
-
       setTimeout(() => {
         this.cards.pop();
       }, 100);
     },
-    throwin: function(e) {
-      console.log("in", e);
-    },
-    log: function() {
-      // console.log(this.$refs.swingRef.clientHeight);
-      console.log(this.$refs.swingRef.$el.clientHeight);
-      // this.cardHeight = this.$refs.swingRef.$el.clientHeight;
-    },
-    // remove () {
-    // },
     swipeLeft() {
       const cards = this.$refs.swingRef.cards;
       cards[cards.length - 1].throwOut(-25, 0);
@@ -146,6 +123,9 @@ export default {
     swipeUp() {
       const cards = this.$refs.swingRef.cards;
       cards[cards.length - 1].throwOut(0, 25);
+    },
+    match() {
+      this.$emit('match');
     }
   }
 };

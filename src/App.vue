@@ -16,18 +16,18 @@
     </div>
     <router-view @match="toggleMatchScreen"/>
 
-    <div v-show="isMatchScreen" class="match absolute w-full h-full bg-black"></div>
+    <match v-show="isMatchScreen"/>
   </div>
 </template>
 
 <script>
-// import Login from "@/components/Card.vue";
+import Match from "@/components/Match.vue";
 
 export default {
   name: "App",
-  // components: {
-  //   Login
-  // },
+  components: {
+    Match
+  },
   data: function() {
     return {
       isMatchScreen: false
@@ -38,7 +38,11 @@ export default {
       this.loggedIn = true;
     },
     toggleMatchScreen (e){
-      console.log(e)
+      console.log(e);
+      if (this.isMatchScreen)
+        this.isMatchScreen = false;
+      else
+        this.isMatchScreen = true;
     }
   }
 };
@@ -63,9 +67,5 @@ export default {
   }
   // display: flex;
   // justify-content: space-between;
-}
-
-.match {
-  opacity: 0.9;
 }
 </style>
