@@ -3,9 +3,10 @@
     <vue-swing @throwout="throwout" :config="config" class="h-full" ref="swingRef">
       <template v-if="showStack">
         <card
-          v-for="card in cards"
+          v-for="(card, index) in cards"
           :key="card.id"
           :data="card"
+          :img="cardImages[index]"
           :style="{height: cardHeight + 'px', width: 'calc(100% - 16px)'}"
         />
       </template>
@@ -42,6 +43,11 @@ import VueSwing from "vue-swing";
 import Card from "@/components/Card.vue";
 import axios from "axios";
 
+
+const IMAGE_API = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyBuqRXAyy5p3jsd1IHQ-UtA38gjskrw9qo&cx=010323834795960414770:6x1j0vzhltg&q=';
+const PRICE_API = 'https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyBuqRXAyy5p3jsd1IHQ-UtA38gjskrw9qo&cx=010323834795960414770:b14jgo3hhwi&q=';
+
+
 export default {
   name: "home",
   components: {
@@ -67,7 +73,7 @@ export default {
         {
           id: 1,
           title: "Saco plástico para lixo",
-          price: 12,
+          price: "12,00",
           img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 1,
           unity_type: "100",
@@ -77,7 +83,7 @@ export default {
         {
           id: 2,
           title: "Tinta para pincel atômico",
-          price: 33,
+          price: "33,00",
           img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 12,
           unity_type: "Unidade",
@@ -87,7 +93,7 @@ export default {
         {
           id: 3,
           title: "Manutenção de ônibus",
-          price: 100,
+          price: "100,00",
           img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 1,
           unity_type: "Unidade",
@@ -97,7 +103,7 @@ export default {
         {
           id: 4,
           title: "Computador DELL",
-          price: 5000,
+          price: "5000,00",
           img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 1,
           unity_type: "Unidade",
@@ -109,7 +115,7 @@ export default {
     };
   },
   created() {
-    this.loadCards();
+    this.loadCardImages(this.cards);
   },
   mounted() {
     this.$nextTick(() => {
@@ -117,25 +123,26 @@ export default {
     });
   },
   methods: {
-    loadCards() {
-      axios
-        .get(`http://www.mocky.io/v2/5d332a4e3400005a00749f8f`)
-        .then(response => {
-          console.log(response.data)
-          this.cards = response.data;
-          this.loadCardImages(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
+    // loadCards() {
+    //   axios
+    //     .get(`http://www.mocky.io/v2/5d332a4e3400005a00749f8f`)
+    //     .then(response => {
+    //       console.log(response.data)
+    //       this.cards = response.data;
+    //       this.loadCardImages(response.data);
+    //     })
+    //     .catch(e => {
+    //       console.log(e);
+    //     });
+    // },
     loadCardImages(cards) {
       let promises = cards.map(async card => {
         return axios
-          .get(`http://www.mocky.io/v2/5d32f17a3400005400749f33`)
+          // .get(`http://www.mocky.io/v2/5d32f17a3400005400749f33`)
+          .get(this.IMAGE_API + card.title)
           .then(response => {
             console.log(response.data);
-            return response.data;
+            return response.data.items[0].link;
           })
           .catch(e => {
             console.log(e);
@@ -147,6 +154,7 @@ export default {
         this.showStack = true;
       });
     },
+
     //throwout
     throwout() {
       setTimeout(() => {
