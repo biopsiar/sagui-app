@@ -56,6 +56,7 @@ export default {
   },
   data: function() {
     return {
+      matchCount: 0,
       showStack: false,
       cardHeight: 0,
       cardWidth: 0,
@@ -157,6 +158,11 @@ export default {
 
     //throwout
     throwout() {
+      this.matchCount++;
+      
+      if(this.matchCount == 3)
+        this.match();
+
       setTimeout(() => {
         this.cards.pop();
       }, 100);
