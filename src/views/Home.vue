@@ -18,7 +18,7 @@
       <!-- <card class="absolute left-0 right-0"/> -->
     </vue-swing>
 
-    <footer class="flex w-4/6 items-center justify-between mx-auto my-4">
+    <footer class="flex w-3/4 items-center justify-between mx-auto my-4">
       <button @click="swipeLeft"
         class="text-4xl bg-white hover:text-green-700 text-green-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow-lg"
       >
@@ -74,7 +74,7 @@ export default {
           id: 1,
           title: "Computador DELL",
           price: 27.33,
-          img: "Computador DELL",
+          img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 1,
           unity_type: "Caixa",
           description:

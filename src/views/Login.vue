@@ -1,30 +1,26 @@
 <template>
   <div class="login flex flex-col h-full p-4">
-    <div class="bg-white max-w-sm rounded-lg overflow-hidden shadow-lg">
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="username"
-          type="text"
-          placeholder="Username"
-        />
+    <div class="px-6 pt-4">
+        <div class="font-bold text-4xl mb-2 text-center">SAGUI</div>
+        <p class="text-gray-700 text-base text-center">Sistema de Avaliação de Gastos Públicos</p>
+
+        <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-auto">
+          Seguir
+        </button> -->
       </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
-        <input
-          class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-          id="password"
-          type="password"
-          placeholder="******************"
-        />
-        <p class="text-red-500 text-xs italic">Please choose a password.</p>
-      </div>
-      <div class="flex items-center justify-between">
-        <button
-          class="bg-blue-500 hover:bg-blue-700 text-white w-full font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-          type="button"
-        >Sign In</button>
+    <div class="my-auto">
+      <img class="w-3/4 mx-auto pb-8" :src="require('@/assets/undraw_voting.svg')" />
+      <div class="bg-white w-3/4 mx-auto my-auto rounded-lg overflow-hidden shadow-lg p-4">
+        <div class="text-center">
+          <router-link to="/home" tag="button"
+            class="bg-blue-500 hover:bg-blue-700 text-white w-full font-bold mb-2 py-2 px-2 rounded-full focus:outline-none focus:shadow-outline"
+            type="button"
+          >Entrar com facebook</router-link>
+          <router-link to="/home" tag="button"
+            class="bg-white border border-gray-500 hover:bg-gray-300 text-gray-700 w-full font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+            type="button"
+          >Entrar com e-mail</router-link>
+        </div>
       </div>
     </div>
   </div>

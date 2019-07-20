@@ -1,18 +1,47 @@
 <template>
-  <div id="app" class="flex flex-col h-screen">
-    <div id="nav" class="text-2xl font-bold text-gray-700 flex justify-between px-5 pt-5 pb-2">
-      <router-link to="/settings"><i class="fas fa-cog"></i></router-link>
-      <router-link to="/">Home</router-link>
-      <router-link to="/login"><i class="fas fa-user"></i></router-link>
-      <router-link to="/profile"><i class="fas fa-user"></i></router-link>
+  <div
+    id="app"
+    class="flex flex-col h-screen max-w-xl mx-auto"
+    :class="{ bglogin: $route.path == '/' }"
+  >
+    <!-- <login v-if="!loggedIn"/> -->
+    <div v-if="$route.path != '/'" id="nav" class="text-2xl font-bold text-gray-700 flex justify-between px-5 pt-5 pb-2">
+      <router-link to="/settings">
+        <i class="fas fa-cog"></i>
+      </router-link>
+      <router-link to="/home">Home</router-link>
+      <router-link to="/profile">
+        <i class="fas fa-user"></i>
+      </router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
+<script>
+// import Login from "@/components/Card.vue";
+
+// export default {
+//   name: "App",
+//   components: {
+//     Login
+//   },
+//   data: function() {
+//     return {
+//       loggedIn: false
+//     };
+//   },
+//   methods: {
+//     login () {
+//       this.loggedIn = true;
+//     }
+//   }
+// };
+</script>
+
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
