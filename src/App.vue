@@ -76,7 +76,7 @@ export default {
   // },
   watch: {
     $route(to, from) {
-      if (fromRoute == undefined) return;
+      // if (fromRoute == undefined) return;
       let toRoute = to.matched[0].meta.order;
       let fromRoute = from.matched[0].meta.order;
       // console.log(to.matched[0].meta.order);
