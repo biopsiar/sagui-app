@@ -18,30 +18,32 @@
       </div>-->
 
       <!-- Two columns -->
-      <div class="flex mb-4 p-4">
-        <div class="w-1/2 bg-gray-400 h-12">
-          <div class="flex mb-4">
-            <div class="w-1/2 bg-gray-400 h-12">
-              <i class="far fa-thumbs-down fa-flip-horizontal text-red-300 text-5xl"></i>
+      <div class="flex mb-4 p-4 text-center">
+        <div class="flex flex-col w-1/2 h-12">
+          <div class="flex mb-1 justify-center">
+            <div class="h-12">
+              <i class="far fa-thumbs-up text-green-300 text-5xl"></i>
             </div>
-            <div class="w-1/2 bg-gray-500 h-12">
+            <div class="h-12">
               <p
-                class="text-gray-700 text-base text-center"
+                class="text-gray-700 text-4xl"
               >24</p>
             </div>
           </div>
+          <p class="text-center text-2xl">Positivas</p>
         </div>
-        <div class="w-1/2 bg-gray-500 h-12">
-          <div class="flex mb-4">
-            <div class="w-1/2 bg-gray-400 h-12">
+        <div class="flex flex-col w-1/2 h-12">
+          <div class="flex mb-1 justify-center">
+            <div class="h-12">
               <i class="far fa-thumbs-down fa-flip-horizontal text-red-300 text-5xl"></i>
             </div>
-            <div class="w-1/2 bg-gray-500 h-12">
+            <div class="h-12">
               <p
-                class="text-gray-700 text-base text-center"
+                class="text-gray-700 text-4xl"
               >24</p>
             </div>
           </div>
+          <p class="text-center text-2xl">Negativas</p>
         </div>
       </div>
 
