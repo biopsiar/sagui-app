@@ -4,7 +4,7 @@
     :style="{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(${img})` }"
   >
     <div class="px-6 py-4 mt-auto">
-      <div class="font-bold text-3xl text-gray-200">R$ {{ price }}</div>
+      <div class="font-bold text-3xl text-gray-200">R$ {{ data.price }}</div>
       <div>
         <span class="font-bold text-xl mb-2 text-gray-200">{{ data.title }}</span>
         <span class="text-md mb-2 text-gray-300"> ({{data.unity}} x {{data.unity_type}})</span>

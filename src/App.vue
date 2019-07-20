@@ -10,19 +10,19 @@
       enter-active-class="animated faster fadeInDown"
       leave-active-class="animated faster fadeOutUp"
     >
-    <div
-      v-if="$route.path != '/'"
-      id="nav"
-      class="text-2xl font-bold text-gray-600 flex justify-between px-5 pt-5 pb-2"
-    >
-      <router-link to="/settings">
-        <i class="fas fa-cog"></i>
-      </router-link>
-      <router-link to="/home">SAGUI</router-link>
-      <router-link to="/profile">
-        <i class="fas fa-user"></i>
-      </router-link>
-    </div>
+      <div
+        v-if="$route.path != '/'"
+        id="nav"
+        class="text-2xl font-bold text-gray-600 flex justify-between px-5 pt-5 pb-2"
+      >
+        <router-link to="/settings">
+          <i class="fas fa-cog"></i>
+        </router-link>
+        <router-link to="/home">SAGUI</router-link>
+        <router-link to="/profile">
+          <i class="fas fa-user"></i>
+        </router-link>
+      </div>
     </transition>
 
     <!-- <transition
@@ -46,7 +46,7 @@
       enter-active-class="animated faster fadeInDown"
       leave-active-class="animated faster fadeOutUp"
     >
-      <match v-show="isMatchScreen" @closeMatch="toggleMatchScreen" />
+      <match v-show="isMatchScreen" @closeMatch="toggleMatchScreen" :img="matchImage" />
     </transition>
   </div>
 </template>
@@ -62,6 +62,7 @@ export default {
   data: function() {
     return {
       isMatchScreen: false,
+      matchImage: "",
       dynamicEnterAnimation: "animated faster fadeIn",
       dynamicLeaveAnimation: "animated faster fadeOut"
     };
@@ -75,8 +76,7 @@ export default {
   // },
   watch: {
     $route(to, from) {
-      if(fromRoute == undefined)
-        return
+      if (fromRoute == undefined) return;
       let toRoute = to.matched[0].meta.order;
       let fromRoute = from.matched[0].meta.order;
       // console.log(to.matched[0].meta.order);
@@ -96,8 +96,8 @@ export default {
     login() {
       this.loggedIn = true;
     },
-    toggleMatchScreen(e) {
-      console.log(e);
+    toggleMatchScreen(img) {
+      if (img) this.matchImage = img;
       if (this.isMatchScreen) this.isMatchScreen = false;
       else this.isMatchScreen = true;
     }

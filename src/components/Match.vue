@@ -10,7 +10,7 @@
 
     <div
       class="border-4 border-gray-300 rounded-full overflow-hidden shadow-lg w-40 h-40 mx-auto cool-bg z-0"
-      style="background-image: url(https://avatars0.githubusercontent.com/u/10541523)"
+      :style="{backgroundImage: 'url('+ img +')'}"
     ></div>
 
     <div class="text-gray-500 font-bold text-lg py-4 text-center">Ver item</div>
@@ -44,7 +44,7 @@ export default {
   //   };
   // },
   props: {
-    item: Object
+    img: String
   },
   methods: {
     share() {

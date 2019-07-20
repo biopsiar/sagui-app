@@ -26,7 +26,7 @@
             <div class="h-12">
               <p
                 class="text-gray-700 text-3xl pl-1"
-              >24</p>
+              >23</p>
             </div>
           </div>
           <p class="text-center text-gray-700 text-base">Positivas</p>
@@ -39,7 +39,7 @@
             <div class="h-12">
               <p
                 class="text-gray-700 text-3xl pl-1"
-              >24</p>
+              >57</p>
             </div>
           </div>
           <p class="text-center text-gray-700 text-base">Negativas</p>

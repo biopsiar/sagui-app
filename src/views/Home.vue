@@ -159,7 +159,7 @@ export default {
     //throwout
     throwout() {
       this.matchCount++;
-      
+
       if(this.matchCount == 3)
         this.match();
 
@@ -184,7 +184,7 @@ export default {
     },
     //match event
     match() {
-      this.$emit("match");
+      this.$emit("match", this.cardImages[3]);
     }
   }
 };
