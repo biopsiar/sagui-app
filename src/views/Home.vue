@@ -71,14 +71,14 @@ export default {
       },
       cards: [
         {
-          id: 1,
-          title: "Saco plástico para lixo",
-          price: "12,00",
+          id: 4,
+          title: "Computador DELL",
+          price: "5000,00",
           img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 1,
-          unity_type: "100",
+          unity_type: "Unidade",
           description:
-            "Capacidade 100 litros. Saco reforçado de polietileno. Embalagem com 100 sacos."
+            "Computador para atender demanda da secretaria."
         },
         {
           id: 2,
@@ -88,7 +88,7 @@ export default {
           unity: 12,
           unity_type: "Unidade",
           description:
-            "Mínimo 20ml. vermelha, preta ou azul"
+            "Mínimo 20ml. vermelha, preta ou azul."
         },
         {
           id: 3,
@@ -98,18 +98,18 @@ export default {
           unity: 1,
           unity_type: "Unidade",
           description:
-            "Serviços mecânicos para manutenção preventiva"
+            "Serviços mecânicos para manutenção preventiva."
         },
         {
-          id: 4,
-          title: "Computador DELL",
-          price: "5000,00",
+          id: 1,
+          title: "Saco plástico para lixo",
+          price: "12,00",
           img: "https://tailwindcss.com/img/card-top.jpg",
           unity: 1,
-          unity_type: "Unidade",
+          unity_type: "100",
           description:
-            "Computador DELL"
-        }
+            "Capacidade 100 litros. Saco reforçado de polietileno. Embalagem com 100 sacos."
+        }        
       ],
       cardImages: []
     };
