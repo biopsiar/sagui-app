@@ -16,7 +16,7 @@
     </div>
     <router-view @match="toggleMatchScreen"/>
 
-    <match v-show="isMatchScreen"/>
+    <match v-show="isMatchScreen" @closeMatch="toggleMatchScreen"/>
   </div>
 </template>
 

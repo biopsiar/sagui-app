@@ -1,13 +1,15 @@
 <template>
   <div class="match absolute w-full h-full">
     <!-- <div class="my-auto h-full"> -->
-    <div class="px-6 py-6">
+    <div class="px-6 pt-12 pb-6">
       <div class="text-gray-100 font-bold text-4xl mb-2 text-center">Encaminhado!</div>
-      <p class="text-gray-300 text-base text-center text-lg">Um item que você avaliou foi inserido no relatório diário.</p>
+      <p
+        class="text-gray-300 text-base text-center text-lg"
+      >Um item que você avaliou foi inserido no relatório diário.</p>
     </div>
 
     <div
-      class="border-4 border-gray-100 rounded-full overflow-hidden shadow-lg w-40 h-40 mx-auto cool-bg z-0"
+      class="border-4 border-gray-300 rounded-full overflow-hidden shadow-lg w-40 h-40 mx-auto cool-bg z-0"
       style="background-image: url(https://avatars0.githubusercontent.com/u/10541523)"
     ></div>
 
@@ -17,13 +19,13 @@
       <div class="w-3/4 mx-auto my-auto rounded-lg overflow-hidden shadow-lg p-4">
         <div class="text-center text-xl">
           <button
+            @click="share"
             class="bg-blue-500 hover:bg-blue-700 text-white w-full font-bold mb-4 py-2 px-2 rounded-full focus:outline-none focus:shadow-outline"
             type="button"
           >Compartilhar</button>
           <button
-            to="/home"
-            tag="button"
-            class="bg-white border border-gray-500 hover:bg-gray-300 text-gray-700 w-full font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+            @click="closeMatch"
+            class="bg-white border border-gray-500 hover:bg-gray-300 text-gray-700 w-full py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
             type="button"
           >Continuar avaliando</button>
         </div>
@@ -33,7 +35,35 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  name: "Match",
+  // data: function() {
+  //   return {
+  //     cardHeight: 0,
+  //     cardWidth: 0
+  //   };
+  // },
+  props: {
+    item: Object
+  },
+  methods: {
+    share() {
+      if (navigator.share) {
+        navigator
+          .share({
+            title: "Ajudei a fiscalizar os gastos públicos!",
+            text: "SAGUI: Sistema de Avaliações de Gastos Públicos",
+            url: "https://biopsiar.github.io"
+          })
+          .then(() => console.log("Successful share"))
+          .catch(error => console.log("Error sharing", error));
+      }
+    },
+    closeMatch(){
+      this.$emit('closeMatch');
+    }
+  }
+};
 </script>
 
 <style lang="scss">
