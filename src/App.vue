@@ -41,7 +41,7 @@
         v-else-if="$route.path != '/'"
         id="nav"
         key="back"
-        class="text-md font-bold flex p-5 pb-3 bg-white w-full rounded overflow-hidden shadow text-left"
+        class="text-left text-md font-bold flex p-5 pb-3 bg-white w-full shadow z-50"
       >
         <a @click="$router.go(-1)">
           <i class="fas fa-arrow-left text-blue-600 mr-6"></i>

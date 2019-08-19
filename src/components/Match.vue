@@ -4,7 +4,7 @@
     <div class="p-6">
       <div class="text-gray-100 font-bold text-4xl mb-2 text-center">Encaminhado!</div>
       <p
-        class="text-gray-300 text-base text-center text-lg"
+        class="text-gray-300 text-base text-center text-md"
       >Um item que você avaliou foi inserido no relatório diário.</p>
     </div>
 
@@ -13,11 +13,11 @@
       :style="{backgroundImage: 'url('+ img +')'}"
     ></div>
 
-    <div class="text-gray-500 font-bold text-lg py-4 text-center">Ver item</div>
+    <div class="text-gray-500 font-bold text-md py-4 text-center">Ver item</div>
 
     <div class="py-2">
       <div class="w-3/4 mx-auto my-auto rounded-lg overflow-hidden shadow-lg p-4">
-        <div class="text-center text-xl">
+        <div class="text-center text-md">
           <button
             @click="share"
             class="bg-blue-700 hover:bg-blue-900 text-white w-full font-bold mb-4 py-2 px-2 rounded-full focus:outline-none focus:shadow-outline"

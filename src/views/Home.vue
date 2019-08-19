@@ -42,11 +42,6 @@ import VueSwing from "vue-swing";
 import Card from "@/components/Card.vue";
 import axios from "axios";
 
-const IMAGE_API =
-  "https://www.googleapis.com/customsearch/v1?key=AIzaSyBuqRXAyy5p3jsd1IHQ-UtA38gjskrw9qo&cx=010323834795960414770:6x1j0vzhltg&q=";
-const PRICE_API =
-  "https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyBuqRXAyy5p3jsd1IHQ-UtA38gjskrw9qo&cx=010323834795960414770:b14jgo3hhwi&q=";
-
 export default {
   name: "home",
   components: {
@@ -97,25 +92,6 @@ export default {
           console.log(e);
         });
     },
-    // loadCardImages(cards) {
-    //   let promises = cards.map(async card => {
-    //     return axios
-    //       // .get(`http://www.mocky.io/v2/5d32f17a3400005400749f33`)
-    //       .get(this.IMAGE_API + card.title)
-    //       .then(response => {
-    //         console.log(response.data);
-    //         return response.data.items[0].link;
-    //       })
-    //       .catch(e => {
-    //         console.log(e);
-    //       });
-    //   });
-    //   return Promise.all(promises)
-    //   .then(cardImages => {
-    //     this.cardImages = cardImages;
-    //     this.showStack = true;
-    //   });
-    // },
 
     //throwout
     throwout() {
