@@ -1,18 +1,30 @@
 <template>
   <div
     id="app"
-    class="flex flex-col h-screen"
+    class="flex flex-col h-screen max-w-md"
     :class="{ bglogin: $route.path == '/' }"
   >
+    
+    <svg width="0" height="0">
+      <defs>
+        <filter id="blur">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+        </filter>
+      </defs>
+    </svg>
+    
     <!-- <login v-if="!loggedIn"/> -->
     <transition
       name="nav-animation"
+      mode="out-in"
       enter-active-class="animated faster fadeInDown"
       leave-active-class="animated faster fadeOutUp"
     >
+      <!-- main nav -->
       <div
-        v-if="$route.path != '/'"
+        v-if="$route.path == '/home'"
         id="nav"
+        key="main"
         class="text-2xl font-bold text-gray-600 flex justify-between px-5 pt-5 pb-2"
       >
         <router-link to="/settings">
@@ -22,6 +34,19 @@
         <router-link to="/profile">
           <i class="fas fa-user"></i>
         </router-link>
+      </div>
+
+      <!-- back nav -->
+      <div
+        v-else-if="$route.path != '/'"
+        id="nav"
+        key="back"
+        class="text-md font-bold flex p-5 pb-3 bg-white w-full rounded overflow-hidden shadow text-left"
+      >
+        <a @click="$router.go(-1)">
+          <i class="fas fa-arrow-left text-blue-600 mr-6"></i>
+        </a>
+        <label class="capitalize text-gray-700">{{ $route.name }}</label>
       </div>
     </transition>
 
@@ -38,13 +63,13 @@
       :enter-active-class="dynamicEnterAnimation"
       :leave-active-class="dynamicLeaveAnimation"
     >
-      <router-view @match="toggleMatchScreen" />
+      <router-view @match="toggleMatchScreen" style="transition: .5s" :style="{ filter: isMatchScreen ? 'url(#blur)' : 'none' }"/>
     </transition>
 
     <transition
       name="match-animation"
-      enter-active-class="animated faster fadeInDown"
-      leave-active-class="animated faster fadeOutUp"
+      enter-active-class="animated faster fadeIn"
+      leave-active-class="animated faster fadeOut"
     >
       <match v-show="isMatchScreen" @closeMatch="toggleMatchScreen" :img="matchImage" />
     </transition>
