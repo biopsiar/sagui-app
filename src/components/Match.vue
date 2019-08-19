@@ -1,7 +1,7 @@
 <template>
-  <div class="match absolute w-full h-full">
+  <div class="match absolute flex flex-col items-center justify-center h-screen">
     <!-- <div class="my-auto h-full"> -->
-    <div class="px-6 pt-12 pb-6">
+    <div class="p-6">
       <div class="text-gray-100 font-bold text-4xl mb-2 text-center">Encaminhado!</div>
       <p
         class="text-gray-300 text-base text-center text-lg"
