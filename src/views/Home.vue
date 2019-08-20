@@ -13,10 +13,17 @@
         </template>
       </vue-swing>
 
-      <div class="text-center" v-else>
-        <i class="fas fa-search"></i>
-        <p>Buscando items</p>
+      <transition
+      name="loading-animation"
+      mode="out-in"
+      enter-active-class="animated faster fadeIn"
+      leave-active-class="animated faster fadeOut"
+    >
+      <div class="flex flex-col h-full text-center justify-center align-center" v-if="!showStack">
+        <i class="text-4xl text-gray-500 fas fa-search animated infinite bounce"></i>
+        <p class="text-bold text-gray-500 mt-4">Buscando items...</p>
       </div>
+      </transition>
     </div>
 
     <footer class="flex w-3/4 items-center justify-between mx-auto my-4" ref="swipeButtons">
@@ -107,6 +114,8 @@ export default {
 
       setTimeout(() => {
         this.cards.pop();
+        if(this.cards.length == 0)
+          this.showStack = false;
       }, 100);
     },
     //<--
