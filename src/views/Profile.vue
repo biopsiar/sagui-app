@@ -17,7 +17,7 @@
         <div class="flex-col">
           <!-- upper -->
           <div class="flex justify-center">
-            <i class="far fa-thumbs-up text-green-300 text-4xl"></i>
+            <i class="fas fa-check text-green-300 text-4xl"></i>
             <p class="text-gray-700 text-3xl pl-1">23</p>
           </div>
           <p class="text-center text-gray-700 text-base">Positivas</p>
@@ -25,7 +25,7 @@
         <div class="flex-col">
           <!-- upper -->
           <div class="flex justify-center">
-            <i class="far fa-thumbs-down fa-flip-horizontal text-red-300 text-4xl"></i>
+            <i class="fas fa-times fa-flip-horizontal text-red-300 text-4xl"></i>
             <p class="text-gray-700 text-3xl pl-1">23</p>
           </div>
           <p class="text-center text-gray-700 text-base">Negativas</p>
@@ -33,7 +33,7 @@
         <div class="flex-col">
           <!-- upper -->
           <div class="flex justify-center">
-            <i class="fas fa-exclamation-circle text-gray-400 text-4xl"></i>
+            <i class="fas fa-exclamation-circle text-gray-500 text-4xl"></i>
             <p class="text-gray-700 text-3xl pl-1">23</p>
           </div>
           <p class="text-center text-gray-700 text-base">Encaminhamentos</p>
