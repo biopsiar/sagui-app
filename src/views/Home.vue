@@ -1,34 +1,40 @@
 <template>
-  <div class="home flex flex-col h-full pl-2">
-    <vue-swing @throwout="throwout" :config="config" class="h-full" ref="swingRef">
-      <template v-if="showStack">
-        <card
-          v-for="card in cards"
-          :key="card.id"
-          :data="card"
-          :style="{height: cardHeight + 'px', width: cardWidth - 8 + 'px'}"
-        />
-      </template>
-    </vue-swing>
+  <div class="home flex flex-col h-full">
 
-    <footer class="flex w-3/4 items-center justify-between mx-auto my-4">
+    <div class="h-full pl-2" ref="homeContainer">
+      <vue-swing @throwout="throwout" :config="config" ref="swingRef" v-if="showStack">
+        <template>
+          <card
+            v-for="card in cards"
+            :key="card.id"
+            :data="card"
+            :style="{height: cardHeight + 'px', width: cardWidth - 16 + 'px'}"
+          />
+        </template>
+      </vue-swing>
+
+      <div class="text-center" v-else>
+        <i class="fas fa-search"></i>
+        <p>Buscando items</p>
+      </div>
+    </div>
+
+    <footer class="flex w-3/4 items-center justify-between mx-auto my-4" ref="swipeButtons">
       <button
         @click="swipeLeft"
         class="text-4xl bg-white hover:text-green-700 text-green-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow"
       >
-        <i class="far fa-thumbs-up"></i>
+        <i class="fas fa-check"></i>
       </button>
       <button
         @click="swipeUp"
-        class="text-2xl bg-white hover:bg-gray-700 text-gray-500 font-bold rounded-full w-16 h-16 overflow-hidden shadow"
-      >
-        <i class="fas fa-question"></i>
-      </button>
+        class="text-4xl bg-white hover:bg-gray-700 text-gray-500 font-bold rounded-full w-16 h-16 overflow-hidden shadow"
+      >?</button>
       <button
         @click="match"
         class="text-4xl bg-white hover:text-red-700 text-red-300 font-bold rounded-full w-20 h-20 overflow-hidden shadow"
       >
-        <i class="far fa-thumbs-down fa-flip-horizontal"></i>
+        <i class="fas fa-times"></i>
       </button>
     </footer>
   </div>
@@ -69,13 +75,13 @@ export default {
     };
   },
   created() {
-    // this.loadCardImages(this.cards);
     this.loadCards();
   },
   mounted() {
     this.$nextTick(() => {
-      this.cardHeight = this.$refs.swingRef.$el.clientHeight;
-      this.cardWidth = this.$refs.swingRef.$el.clientWidth;
+      console.log(this.$refs);
+      this.cardHeight = this.$refs.homeContainer.clientHeight;
+      this.cardWidth = this.$refs.homeContainer.clientWidth;
     });
   },
   methods: {
@@ -120,7 +126,6 @@ export default {
     },
     //match event
     match() {
-      console.log('aaa', this.refCards);
       this.$emit("match", this.refCards[3].img);
     }
   }

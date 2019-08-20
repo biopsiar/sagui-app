@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card-container cool-bg bg-white text-left rounded-lg overflow-hidden shadow-lg flex bg-no-repeat bg-center absolute"
+    class="card-container cool-bg bg-white text-left rounded-lg overflow-hidden shadow-md flex bg-no-repeat bg-center absolute"
     :style="{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(${data.img})` }"
   >
     <div class="px-6 py-4 mt-auto">

@@ -26,9 +26,9 @@
           >
             <button
               @click="nextStage()"
-              class="bg-blue-500 hover:bg-blue-700 text-white w-full font-bold mb-2 py-2 px-2 rounded-full focus:outline-none focus:shadow-outline"
+              class="sagui-gradient hover:bg-blue-700 text-white w-full font-bold mb-2 py-2 px-2 rounded-full focus:outline-none focus:shadow-outline"
               type="button"
-            >Entrar com facebook</button>
+            ><i class="fab fa-facebook-square pr-2"></i>Entrar com facebook</button>
             <button
               @click="nextStage()"
               class="bg-white border border-gray-500 hover:bg-gray-300 text-gray-700 w-full font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
