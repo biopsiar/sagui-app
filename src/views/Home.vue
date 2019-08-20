@@ -3,7 +3,7 @@
     <vue-swing @throwout="throwout" :config="config" class="h-full" ref="swingRef">
       <template v-if="showStack">
         <card
-          v-for="(card, index) in cards"
+          v-for="card in cards"
           :key="card.id"
           :data="card"
           :style="{height: cardHeight + 'px', width: cardWidth - 8 + 'px'}"

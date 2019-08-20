@@ -43,7 +43,7 @@
           key="secondStage"
         >
           <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">E-mail</label>
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
@@ -51,8 +51,8 @@
               placeholder="Username"
             />
           </div>
-          <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+          <div class="mb-1">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Senha</label>
             <input
               class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
@@ -60,17 +60,22 @@
               placeholder="******************"
             />
           </div>
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col text-center">
             <router-link
               to="/home"
               tag="button"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded-full focus:outline-none focus:shadow-outline"
               type="button"
-            >Sign In</router-link>
+            >Entrar</router-link>
             <a
+              class="mb-1 inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+              href="#"
+            >Esqueci minha senha</a>
+            <a
+              @click="previousStage()"
               class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
               href="#"
-            >Forgot Password?</a>
+            >Voltar</a>
           </div>
         </form>
       </transition>
@@ -88,7 +93,10 @@ export default {
   },
   methods: {
     nextStage() {
-      this.stage++;
+      this.stage = 1;
+    },
+    previousStage() {
+      this.stage = 0;
     }
   }
 };

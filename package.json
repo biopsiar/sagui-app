@@ -16,9 +16,11 @@
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vue-swing": "0.0.10",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "postcss-import": "^12.0.1"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
     "@fortawesome/fontawesome-free": "^5.9.0",
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-plugin-eslint": "^3.9.0",
