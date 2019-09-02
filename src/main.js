@@ -18,6 +18,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-
-//la malicia
-window.scrollTo(0,1);

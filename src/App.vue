@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="flex flex-col h-screen max-w-md"
+    class="flex flex-col h-screen max-w-md overflow-hidden"
     :class="{ bglogin: $route.path == '/' }"
   >
     
@@ -25,7 +25,7 @@
         v-if="$route.path == '/home'"
         id="nav"
         key="main"
-        class="text-2xl font-bold text-gray-600 flex justify-between px-5 pt-5 pb-2"
+        class="text-2xl font-bold text-gray-600 flex justify-between px-5 pt-4 pb-2"
       >
         <router-link to="/settings">
           <i class="fas fa-cog"></i>

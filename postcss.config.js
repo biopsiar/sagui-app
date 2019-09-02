@@ -1,32 +1,32 @@
-// module.exports = {
-// 	"plugins": [
-//  		require('tailwindcss')('tailwind.js'),
-//  		require('autoprefixer')(),
-// 	]
-// }
+module.exports = {
+	"plugins": [
+ 		require('tailwindcss')('tailwind.js'),
+ 		require('autoprefixer')(),
+	]
+}
 
 // postcss.config.js
-const purgecss = require("@fullhuman/postcss-purgecss")({
-  // Specify the paths to all of the template files in your project
-  content: [
-    "./src/**/*.html",
-    "./src/**/*.vue",
-    "./src/**/*.jsx"
-    // etc.
-  ],
+// const purgecss = require("@fullhuman/postcss-purgecss")({
+//   // Specify the paths to all of the template files in your project
+//   content: [
+//     "./src/**/*.html",
+//     "./src/**/*.vue",
+//     "./src/**/*.jsx"
+//     // etc.
+//   ],
 
-  css: ["./src/css/tailwind.css", "@fortawesome/fontawesome-free/css/all.css"],
+//   css: ["./src/css/tailwind.css", "@fortawesome/fontawesome-free/css/all.css"],
 
-  rejected: true,
+//   rejected: true,
 
-  // Include any special characters you're using in this regular expression
-  defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-});
+//   // Include any special characters you're using in this regular expression
+//   defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+// });
 
-module.exports = {
-  plugins: [
-    require("tailwindcss"),
-    require("autoprefixer"),
-    ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
-  ]
-};
+// module.exports = {
+//   plugins: [
+//     require("tailwindcss"),
+//     require("autoprefixer"),
+//     ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
+//   ]
+// };

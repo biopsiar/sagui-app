@@ -2,7 +2,7 @@
   <div class="home flex flex-col h-full">
 
     <div class="h-full pl-2" ref="homeContainer">
-      <vue-swing @throwout="throwout" :config="config" ref="swingRef" v-if="showStack">
+      <vue-swing @throwoutright="throwout('right')" @throwoutleft="throwout('left')" @throwoutup="throwout('up')" :config="config" ref="swingRef" v-if="showStack">
         <template>
           <card
             v-for="card in cards"
@@ -107,7 +107,7 @@ export default {
     },
 
     //throwout
-    throwout() {
+    throwout(direction) {
       this.matchCount++;
 
       if (this.matchCount == 3) this.match();
@@ -117,6 +117,7 @@ export default {
         if(this.cards.length == 0)
           this.showStack = false;
       }, 100);
+      this.$store.commit('increment', direction);
     },
     //<--
     swipeLeft() {
@@ -136,6 +137,8 @@ export default {
     //match event
     match() {
       this.$emit("match", this.refCards[3].img);
+      this.$store.commit('increment', 'reports');
+      this.$store.commit('incrementPoints');
     }
   }
 };
